@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OrleansConfiguration xmlns="urn:orleans">
+    <Globals>
+        <SystemStore SystemStoreType="SqlServer"
+                 DeploymentId="Dev"
+                 DataConnectionString="User ID=postgres;Password=Password123;Server=192.168.253.218;Port=5432;Database=orleans;Pooling=true;Timeout=15;CommandTimeout=15"
+                 AdoInvariant="Npgsql"/>
+        <SeedNode Address="localhost" Port="11111" />
+    </Globals>
+    <Defaults>
+        <Networking Address="localhost" Port="11111" />
+        <ProxyingGateway Address="localhost" Port="30000" />
+        <Tracing DefaultTraceLevel="Verbose" >
+            <TraceLevelOverride LogPrefix="Orleans-Silo-Default" TraceLevel="Verbose" />
+        </Tracing>
+    </Defaults>
+    <Tracing DefaultTraceLevel="Verbose" >
+        <TraceLevelOverride LogPrefix="Orleans-Silo" TraceLevel="Verbose" />
+    </Tracing>
+</OrleansConfiguration>
+
+
+
+
+
+<!--<StorageProviders>
+            <Provider Type="Orleans.Storage.AdoNetStorageProvider"
+                      Name="OrleansStorage"
+                      AdoInvariant="Npgsql"
+                      DataConnectionString="Server=192.168.241.246;Port=5432;Database=orleans;User Id=postgres;Password=Password123; CommandTimeout = 20; Pooling = true;"
+                      UseJsonFormat="true" />
+        </StorageProviders>-->

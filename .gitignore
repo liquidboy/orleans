@@ -207,3 +207,8 @@ src/SetupTestScriptOutput.txt
 
 # Binary MSBuild Log files
 *.binlog
+/Samples/jose/output/*
+/Samples/jose/Silo/output/*
+/Samples/jose/Web/output/*
+# /Samples/jose/Web/*.exe
+# /Samples/jose/Silo/*.exe
