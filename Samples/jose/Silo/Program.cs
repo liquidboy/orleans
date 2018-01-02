@@ -19,14 +19,16 @@ namespace Silo
         static string postgresServer;
         static bool isDevMode;
         static int proxyGatewayPort;
-
-
+        static bool isPrimary;
+        static string siloName;
 
         public static int Main(string[] args)
         {
             postgresServer = args[0];
             proxyGatewayPort = int.Parse(args[1]);
             isDevMode = (args[2].ToLower().Equals("true")) ? true : false;
+            isPrimary = (args[3].ToLower().Equals("true")) ? true : false;
+            siloName = args[4];
 
             return RunMainAsync().Result;
         }
@@ -102,8 +104,6 @@ namespace Silo
                 config.Defaults.ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Any, proxyGatewayPort);
             }
             else {
-                
-                
                 config.Defaults.Port = proxyGatewayPort - 100;
 
                 var ips = await Dns.GetHostAddressesAsync(Dns.GetHostName());
@@ -126,11 +126,10 @@ namespace Silo
             
             var builder = new SiloHostBuilder()
                 .UseConfiguration(config)
+                // .ConfigureSiloName(siloName)
                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(Counter).Assembly).WithReferences())
                 .ConfigureLogging(logging => logging.AddFilter(  "orleans", LogLevel.Trace));
-
-
-
+            
             var host = builder.Build();
             await host.StartAsync();
 

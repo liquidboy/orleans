@@ -21,8 +21,11 @@ build
 run
 =================
 
-	.\Container-IP orleans-silo
-	.\Container-Run 192.168.251.167 30005 orleans-client
+	.\Container-IP orleans-silo-1
+	.\Container-Run 192.168.242.238 30006 orleans-client-1 80
+	.\Container-Run 192.168.242.238 30006 orleans-client-2 81
+	.\Container-IP orleans-silo-2
+	.\Container-Run 192.168.242.11 30007 orleans-client-3 82
 
 
 
@@ -32,7 +35,8 @@ test
 
 	- get ip address of running container
 
-		.\Container-IP orleans-client
+		.\Container-IP orleans-client-1
+		.\Container-IP orleans-client-2
 
 	- manually spin up a container to test in
 
