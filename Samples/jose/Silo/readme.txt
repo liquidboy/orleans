@@ -22,7 +22,7 @@ run
 =================
 
 	.\Container-IP orleans-postgresql-5435
-	.\Container-Run 192.168.248.78 orleans-silo 30005
+	.\Container-Run 192.168.250.10 orleans-silo 30005
 
 
 

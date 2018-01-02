@@ -212,3 +212,4 @@ src/SetupTestScriptOutput.txt
 /Samples/jose/Web/output/*
 # /Samples/jose/Web/*.exe
 # /Samples/jose/Silo/*.exe
+/Samples/jose/Client.Web/output/*

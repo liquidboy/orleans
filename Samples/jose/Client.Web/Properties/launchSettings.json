@@ -18,7 +18,7 @@
     },
     "Web": {
       "commandName": "Project",
-      "commandLineArgs": "proxyip1=127.0.0.1 proxyip=192.168.243.243 proxyport=30005",
+      "commandLineArgs": "proxyip1=127.0.0.1 proxyip=192.168.251.167 proxyport=30005",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

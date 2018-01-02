@@ -5,7 +5,7 @@ note: run these from the "Silo" folder in powershell
 START
 =================
 
-	cd E:\Source\gh\dotnet\orleans\Samples\jose\Web
+	cd E:\Source\gh\dotnet\orleans\Samples\jose\Client.Web
 
 
 
@@ -22,7 +22,7 @@ run
 =================
 
 	.\Container-IP orleans-silo
-	.\Container-Run 192.168.243.243 30005 orleans-client
+	.\Container-Run 192.168.251.167 30005 orleans-client
 
 
 
