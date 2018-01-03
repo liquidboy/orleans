@@ -1,0 +1,19 @@
+version: '3'
+services:
+  orleans-silo:
+    image: jose/orleans/silo:latest
+    build:
+      context: ./Silo/
+      dockerfile: Dockerfile
+    ports:
+      - '30006:30006'
+    command: Run-Orleans.bat "192.168.240.107 30006 false true orleans-silo-0"
+    volumes:
+      - c:\orleans\silo\
+  # orleans-db:
+  #   image: jose/orleans/postgresql:latest
+  #   build:
+  #     context: ./Db/
+  #     dockerfile: Dockerfile
+  #   ports:
+  #   - "5432:5432"
