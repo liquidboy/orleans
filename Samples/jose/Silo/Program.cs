@@ -77,10 +77,10 @@ namespace Silo
             config.Globals.RegisterStorageProvider<MemoryStorage>("MemoryStore");
             config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("Default", properties);
             config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("OrleansStorage", properties);
-            config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("PubSubStore", properties);
+            //config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("PubSubStore", properties);
             config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("AzureTable", properties);
-            config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("DataStorage", properties);
-            config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("BlobStorage", properties);
+            //config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("DataStorage", properties);
+            //config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("BlobStorage", properties);
 
             
             config.Globals.ClusterId = "orleans-silo";
@@ -99,12 +99,12 @@ namespace Silo
                         
             if (isDevMode )
             {
-                config.Defaults.Port = proxyGatewayPort - 100;
+                config.Defaults.Port = 11111;
                 config.Defaults.HostNameOrIPAddress = "localhost";
                 config.Defaults.ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Any, proxyGatewayPort);
             }
             else {
-                config.Defaults.Port = proxyGatewayPort - 100;
+                config.Defaults.Port = 11111;
 
                 var ips = await Dns.GetHostAddressesAsync(Dns.GetHostName());
                 

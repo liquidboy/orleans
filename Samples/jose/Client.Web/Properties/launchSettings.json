@@ -18,7 +18,7 @@
     },
     "Web": {
       "commandName": "Project",
-      "commandLineArgs": "proxyip1=127.0.0.1 proxyip=192.168.245.250 proxyport=30005",
+      "commandLineArgs": "silo_gateways=127.0.0.1:30006 silo_gateways2=192.168.253.71:30006-192.168.250.207:30007",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

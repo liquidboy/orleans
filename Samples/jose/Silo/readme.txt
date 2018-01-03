@@ -22,8 +22,8 @@ run
 =================
 
 	.\Container-IP orleans-postgresql-5435
-	.\Container-Run 192.168.252.210 orleans-silo-1 30006 true
-	.\Container-Run 192.168.252.210 orleans-silo-2 30007 false
+	.\Container-Run 192.168.240.107 orleans-silo-1 30006 true
+	.\Container-Run 192.168.240.107 orleans-silo-2 30007 false
 
 
 

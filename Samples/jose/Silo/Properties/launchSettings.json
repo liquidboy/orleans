@@ -2,7 +2,7 @@
   "profiles": {
     "Silo": {
       "commandName": "Project",
-      "commandLineArgs": "192.168.248.78 30005 false true orleans-silo-1"
+      "commandLineArgs": "192.168.240.107 30006 false true orleans-silo-1"
     }
   }
 }

@@ -2,8 +2,7 @@
 :: launching the client as a dotnet initiated proces
 :: ===============================================
 
-set proxy_ip=%1
-set proxy_gateway_port=%2
+set silo_gateways=%1
 
 cd c:\orleans\client
-call dotnet Client.Web.dll proxyip=%proxy_ip% proxyport=%proxy_gateway_port%
+call dotnet Client.Web.dll silo_gateways=%silo_gateways%

@@ -1,6 +1,7 @@
 ﻿using Orleans;
 // using Orleans.ApplicationParts;
 using Orleans.Providers;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Grains
@@ -15,6 +16,8 @@ namespace Grains
         Task Increment(int increment);
 
         Task<int> GetCount();
+
+        Task<string> GetFingerPrintedCount();
     }
 
 
@@ -38,5 +41,31 @@ namespace Grains
             await base.ReadStateAsync();
             return State.Count;
         }
+
+        public async Task<string> GetFingerPrintedCount()
+        {
+            // return Task.FromResult(_counter);
+            // await base.ReadStateAsync();
+            var fp = await GetFingerPrint();
+            return $"{fp}";
+        }
+
+
+        public async Task<string> GetFingerPrint() {
+
+            var html = $"hostname = {Dns.GetHostName()} ";
+            html += "</br>";
+
+            var ips = await Dns.GetHostAddressesAsync(Dns.GetHostName());
+            html += $"ips =";
+            foreach (var ip in ips)
+            {
+                html += $" {ip}";
+            }
+            html += "</br>";
+
+            return html;
+        }
+
     }
 }

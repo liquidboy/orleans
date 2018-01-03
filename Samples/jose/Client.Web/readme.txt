@@ -22,10 +22,11 @@ run
 =================
 
 	.\Container-IP orleans-silo-1
-	.\Container-Run 192.168.242.238 30006 orleans-client-1 80
-	.\Container-Run 192.168.242.238 30006 orleans-client-2 81
+	.\Container-Run 192.168.255.32:30006-192.168.254.16:30007 orleans-client-1 80
+	.\Container-Run 192.168.253.71:30006 orleans-client-2 81
+	
 	.\Container-IP orleans-silo-2
-	.\Container-Run 192.168.242.11 30007 orleans-client-3 82
+	.\Container-Run 192.168.242.11:30007 orleans-client-3 82
 
 
 
