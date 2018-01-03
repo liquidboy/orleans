@@ -83,7 +83,7 @@ namespace Silo
             //config.Globals.RegisterStorageProvider<AdoNetStorageProvider>("BlobStorage", properties);
 
             
-            config.Globals.ClusterId = "orleans-silo";
+            // config.Globals.ClusterId = "orleans-docker";
 
             config.Globals.DataConnectionString = $"User ID=postgres;Password=Password123;Server={postgresServer};Port=5432;Database=orleans;Pooling=true;Timeout=15;CommandTimeout=15";
             config.Globals.AdoInvariant = "Npgsql";

@@ -51,19 +51,15 @@ namespace Grains
         }
 
 
-        public async Task<string> GetFingerPrint() {
-
-            var html = $"hostname = {Dns.GetHostName()} ";
-            html += "</br>";
-
+        public async Task<string> GetFingerPrint()
+        {
+            var html = $"[{Dns.GetHostName()}";
             var ips = await Dns.GetHostAddressesAsync(Dns.GetHostName());
-            html += $"ips =";
             foreach (var ip in ips)
             {
-                html += $" {ip}";
+                html += $"|{ip}";
             }
-            html += "</br>";
-
+            html += "]";
             return html;
         }
 

@@ -16,7 +16,7 @@ namespace Web.Api
                 var counter = clusterClient.GetGrain<ICounterGrain>("Demo");
                 var currentCount = await counter.GetCount();
                 var fingerPrint = await counter.GetFingerPrintedCount();
-                await response.WriteAsync($"{fingerPrint} -----> {currentCount.ToString()}");
+                await response.WriteAsync($"{fingerPrint} {currentCount.ToString()}");
             });
 
             Post("/counter/", async (request, response, _) =>

@@ -47,14 +47,15 @@ namespace Web
                     .Execute(() =>
                     {
                         IClusterClient client;
-
+                        
                         while (true)
                         {
                             // https://github.com/dotnet/orleans/blob/master/Samples/HelloWorld.NetCore/src/OrleansClient/Program.cs
                             // https://github.com/RayTale/Ray/tree/master/Example/Ray.IGrains
+                            // docker : https://dotnet.github.io/orleans/Documentation/Deployment-and-Operations/Docker-Deployment.html
                             var config = new ClientConfiguration();
                             config.ClientName = "orleans-client";
-                            config.ClusterId = "orleans-client";
+                            config.ClusterId = "orleans-docker";
                             config.PropagateActivityId = true;
 
                             foreach (var gateway in gateways) {
@@ -62,7 +63,7 @@ namespace Web
                                 config.Gateways.Add(new IPEndPoint(IPAddress.Parse(gatewayParts[0]), int.Parse(gatewayParts[1])));
                             }
                             
-                            // config.PreferedGatewayIndex = 0;
+                            config.PreferedGatewayIndex = 0;
                             client = new ClientBuilder()
                                 .UseConfiguration(config)
                                 .ConfigureApplicationParts(parts => parts.AddApplicationPart(typeof(ICounterGrain).Assembly).WithReferences())
